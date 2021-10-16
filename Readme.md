@@ -1,13 +1,13 @@
 # Upgrades Mix
 
-## Prerequisites
+### Prerequisites
 
 Please install or have installed the following:
 
 - [nodejs and npm](https://nodejs.org/en/download/)
 - [python](https://www.python.org/downloads/)
 
-## Installation
+### Installation
 
 1. [Install Brownie](https://eth-brownie.readthedocs.io/en/stable/install.html), if you haven't already. Here is a simple way to install brownie.
 
@@ -51,7 +51,7 @@ git clone https://github.com/PatrickAlphaC/upgrades-mix
 cd upgrades-mix
 ```
 
-## Environment Variables
+### Environment Variables
 
 If you want to be able to deploy to testnets or work with mainnet-fork, do the following.
 
@@ -76,7 +76,7 @@ AND THEN RUN `source .env` TO ACTIVATE THE ENV VARIABLES
 
 # Useage
 
-## Scripts
+### Scripts
 
 ```
 brownie run scripts/01_deploy_box.py
@@ -95,13 +95,13 @@ Then, the upgrade script will:
 5. Upgrade the proxy to point to the new implementation contract, essentially upgrading your infrastructure.
 6. Then it will call a function only `BoxV2` can call
 
-## Test
+### Test
 
 ```
 brownie test
 ```
 
-## Linting
+### Linting
 
 ```
 pip install black
@@ -110,7 +110,7 @@ autoflake --in-place --remove-unused-variables -r .
 black .
 ```
 
-## Resources
+### Resources
 
 To get started with Brownie:
 
@@ -121,6 +121,6 @@ To get started with Brownie:
 
 Any questions? Join our [Discord](https://discord.gg/9zk7snTfWe)
 
-## License
+### License
 
 This project is licensed under the [MIT license](LICENSE).
