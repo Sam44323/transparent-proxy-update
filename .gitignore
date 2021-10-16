@@ -5,3 +5,4 @@ build/
 reports/
 ..gpg
 .vscode
+.env
