@@ -124,3 +124,5 @@ Any questions? Join our [Discord](https://discord.gg/9zk7snTfWe)
 ### License
 
 This project is licensed under the [MIT license](LICENSE).
+
+---
