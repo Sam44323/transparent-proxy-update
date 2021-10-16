@@ -1,4 +1,4 @@
-# Upgrades Mix
+# Transparent Proxy Update
 
 ### Prerequisites
 
@@ -74,7 +74,7 @@ AND THEN RUN `source .env` TO ACTIVATE THE ENV VARIABLES
 > DO NOT SEND YOUR PRIVATE KEY WITH FUNDS IN IT ONTO GITHUB
 > Otherwise, you can build, test, and deploy on your local environment.
 
-# Useage
+# Usage
 
 ### Scripts
 
