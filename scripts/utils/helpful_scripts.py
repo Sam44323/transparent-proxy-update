@@ -34,5 +34,23 @@ def encode_function_data(initializer=None, *args):
     return initializer.encode_input(*args)
 
 
-def update():
-    pass
+def update(account, proxy, new_implementation_address, proxy_admin_contract=None, initializer=None, *args):
+    transaction = None
+    if proxy_admin_contract:
+        if initializer:
+            encode_function_call = encode_function_data(initializer, *args)
+            transaction = proxy_admin_contract.upgradeAndCall(
+                proxy.address, new_implementation_address, encode_function_call, {"from": account})
+        else:
+            transaction = proxy_admin_contract.update(
+                proxy.address, new_implementation_address, {"from": account})
+    else:
+        if initializer:
+            encode_function_call = encode_function_data(initializer, *args)
+            # if no admin, then upgrade the implementation directly from the proxy itself
+            transaction = proxy.upgradeToAndCall(
+                new_implementation_address, encode_function_call, {"from": account})
+        else:
+            transaction = proxy_admin_contract.update(
+                new_implementation_address, {"from": account})
+    return transaction
