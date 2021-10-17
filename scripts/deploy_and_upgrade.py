@@ -7,21 +7,23 @@ def main():
     print(f"Deploying to {network.show_active()}")
     box = Box.deploy(
         {"from": account},
-        publish_source=config["networks"][network.show_active()]["verify"],
+        publish_source=True,
     )  # the Box implementation contract
 
     # Optional, deploy the ProxyAdmin and use that as the admin contract
     proxy_admin = ProxyAdmin.deploy(
         {"from": account},
+        publish_source=True
     )
 
-    proxy_admin = ProxyAdmin.deploy({"from": account})
+    proxy_admin = ProxyAdmin.deploy(
+        {"from": account}, publish_source=True)
     # hooking up an implementation contract to a proxy
 
     # as of now we are not using any initializer function. See the definition for encode_function_data in the helpful scripts
     box_encoded_initializer_function = encode_function_data()
     proxy = TransparentUpgradeableProxy.deploy(
-        box.address, proxy_admin.address, box_encoded_initializer_function, {"from": account})
+        box.address, proxy_admin.address, box_encoded_initializer_function, {"from": account}, publish_source=True)
 
     print(f"Proxy upload to {proxy}, you can now update to v2!")
 
@@ -31,7 +33,7 @@ def main():
     print(proxy_box.retrieve({"from": account}))
 
     # upgrading the implementation contract
-    box_v2 = BoxV2.deploy({"from": account})
+    box_v2 = BoxV2.deploy({"from": account}, publish_source=True)
     upgrade_transaction = upgrade(
         account, proxy, box_v2.address, proxy_admin)
     upgrade_transaction.wait(1)
