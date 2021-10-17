@@ -34,7 +34,7 @@ def encode_function_data(initializer=None, *args):
     return initializer.encode_input(*args)
 
 
-def update(account, proxy, new_implementation_address, proxy_admin_contract=None, initializer=None, *args):
+def upgrade(account, proxy, new_implementation_address, proxy_admin_contract=None, initializer=None, *args):
     transaction = None
     if proxy_admin_contract:
         if initializer:
