@@ -10,3 +10,6 @@ def main():
 
     proxy_admin = ProxyAdmin.deploy({"from": account})
     # hooking up an implementation contract to a proxy
+
+    # encoding the initializer function for the implementation contract
+    initializer = box.store, 1
