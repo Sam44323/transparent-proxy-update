@@ -110,17 +110,6 @@ autoflake --in-place --remove-unused-variables -r .
 black .
 ```
 
-### Resources
-
-To get started with Brownie:
-
-- Check out the other [Brownie mixes](https://github.com/brownie-mix/) that can be used as a starting point for your own contracts. They also provide example code to help you get started.
-- ["Getting Started with Brownie"](https://medium.com/@iamdefinitelyahuman/getting-started-with-brownie-part-1-9b2181f4cb99) is a good tutorial to help you familiarize yourself with Brownie.
-- For more in-depth information, read the [Brownie documentation](https://eth-brownie.readthedocs.io/en/stable/).
-- Or watch any of the [Brownie YouTube](https://www.youtube.com/watch?v=QfFO22lwSw4&t=2s) tutorials or [articles](https://alphachain.io/blogs/)
-
-Any questions? Join our [Discord](https://discord.gg/9zk7snTfWe)
-
 ### License
 
 This project is licensed under the [MIT license](LICENSE).
