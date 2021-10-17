@@ -3,4 +3,4 @@ from brownie import BoxV2, ProxyAdmin, TransparentUpgradeableProxy, Contract
 
 
 def test_proxy_delegate_calls():
-    pass
+    account = get_account()
