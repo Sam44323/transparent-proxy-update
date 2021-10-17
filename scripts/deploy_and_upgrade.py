@@ -31,4 +31,4 @@ def main():
     print(proxy_box.retrieve({"from": account}))
 
     # upgrading the implementation contract
-    # box_v2 = BoxV2.deploy({"from": account})
+    box_v2 = BoxV2.deploy({"from": account})
