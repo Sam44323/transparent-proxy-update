@@ -1,12 +1,19 @@
-from brownie import Box, ProxyAdmin, TransparentUpgradeableProxy, network, Contract
+from brownie import Box, ProxyAdmin, TransparentUpgradeableProxy, network, Contract, config
 from scripts.utils.helpful_scripts import encode_function_data, get_account
 
 
 def main():
     account = get_account()
-    print(f"Deploying to network {network.show_active()}")
-    box = Box.deploy({"from": account})  # the Box implementation contract
-    print(box.retreive())
+    print(f"Deploying to {network.show_active()}")
+    box = Box.deploy(
+        {"from": account},
+        publish_source=config["networks"][network.show_active()]["verify"],
+    )  # the Box implementation contract
+
+    # Optional, deploy the ProxyAdmin and use that as the admin contract
+    proxy_admin = ProxyAdmin.deploy(
+        {"from": account},
+    )
 
     proxy_admin = ProxyAdmin.deploy({"from": account})
     # hooking up an implementation contract to a proxy
