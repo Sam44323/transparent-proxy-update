@@ -32,3 +32,7 @@ def encode_function_data(initializer=None, *args):
         # if no initializer or args is blank, we return an empty hex string
         return eth_utils.to_bytes(hexstr="0x")
     return initializer.encode_input(*args)
+
+
+def update():
+    pass
