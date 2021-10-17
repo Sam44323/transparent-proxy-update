@@ -1,4 +1,4 @@
-from brownie import Box, BoxV2, ProxyAdmin, TransparentUpgradeableProxy, network, Contract, config
+from brownie import Box, BoxV2, ProxyAdmin, TransparentUpgradeableProxy, network, Contract
 from scripts.utils.helpful_scripts import encode_function_data, get_account, upgrade
 
 
