@@ -1,4 +1,4 @@
-from brownie import Box, ProxyAdmin, TransparentUpgradeableProxy, network, Contract, config
+from brownie import Box, BoxV2, ProxyAdmin, TransparentUpgradeableProxy, network, Contract, config
 from scripts.utils.helpful_scripts import encode_function_data, get_account
 
 
@@ -28,4 +28,7 @@ def main():
     # assigning the Box ABI to proxy contract so that it can delegate to the box contract once called instead of throwing an error(which is a default usecase when you assign an ABI to a contract that doesn't contain any functions related to the abi)
 
     proxy_box = Contract.from_abi("Box", proxy.address, Box.abi)
-    print(proxy_box.store(1, {"from": account}))
+    print(proxy_box.retrieve({"from": account}))
+
+    # upgrading the implementation contract
+    # box_v2 = BoxV2.deploy({"from": account})
